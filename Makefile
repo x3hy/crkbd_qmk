@@ -6,9 +6,10 @@ MOUNT_PATH = /run/media/_3hy/$(DEV_NAME)
 
 all:compile flash
 
-write: config.h keymap.c
+write: config.h keymap.c rules.mk
 	cp config.h  ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
 	cp keymap.c  ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
+	cp rules.mk  ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
 
 compile: write
 	qmk compile -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true
@@ -18,15 +19,16 @@ keymap: remove
 	ln -s ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM) .
 	cp $(QMK_KM)/config.h .
 	cp $(QMK_KM)/keymap.c .
+	cp $(QMK_KM)/rules.mk .
 
 remove:
-	-rm -rf ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM) config.h keymap.c $(QMK_KM)
+	-rm -rf ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM) config.h keymap.c $(QMK_KM) rules.mk
 
 log_comp:
 	make compile 2>&1 | tee log
 
 format:
-	clang-format -i .clang keymap.c > tmp
+	clang-format keymap.c > tmp
 	mv keymap.c /tmp
 	mv tmp keymap.c
 
