@@ -1,0 +1,149 @@
+layout: {qmk_keyboard: crkbd/rev4_1/standard, layout_name: LAYOUT_split_3x6_3_ex2}
+layers:
+  L0:
+  - ESC
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - '-'
+  - '='
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - BSPC
+  - LSFT
+  - A
+  - S
+  - D
+  - F
+  - G
+  - TAB
+  - SPC
+  - H
+  - J
+  - K
+  - L
+  - ;
+  - ''''
+  - LCTL
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - {h: L2}
+  - {h: L1}
+  - LGUI
+  - SPC
+  - ENT
+  - LSFT
+  - {h: L1}
+  L1:
+  - '`'
+  - Sft+1
+  - Sft+2
+  - Sft+3
+  - Sft+4
+  - Sft+5
+  - '['
+  - ']'
+  - Sft+6
+  - Sft+7
+  - Sft+8
+  - Sft+9
+  - Sft+0
+  - BSPC
+  - LSFT
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - Sft+[
+  - Sft+]
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - \
+  - LCTL
+  - WIN1
+  - WIN2
+  - WIN3
+  - WIN4
+  - WIN5
+  - WIN6
+  - WIN7
+  - WIN8
+  - WIN9
+  - WIN0
+  - Sft+\
+  - {type: held}
+  - LGUI
+  - SPC
+  - ENT
+  - LSFT
+  - ''
+  L2:
+  - ESC
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - BSPC
+  - F12
+  - F11
+  - F10
+  - F9
+  - F8
+  - F7
+  - LSFT
+  - RM HUEU
+  - RM SATU
+  - RM VALU
+  - RM SPDU
+  - RM NEXT
+  - RM TOGG
+  - MFFD
+  - MRWD
+  - UP
+  - RGHT
+  - UP
+  - DOWN
+  - LEFT
+  - LCTL
+  - RM HUED
+  - RM SATD
+  - RM VALD
+  - RM SPDD
+  - RM PREV
+  - RGHT
+  - DOWN
+  - LEFT
+  - VOLU
+  - VOLD
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  L3: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '']
+  L4: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '']
+  L5: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '']

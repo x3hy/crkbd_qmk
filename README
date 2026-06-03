@@ -5,13 +5,16 @@ keyboard device. Mostly because the Redhat cuck-ware; udev, does not work.
 I've set this up for portability. Please read the Makefile for more
 information!.
 
-  File:         | Description:
-.---------------+---------------------------------------- - -  - .
-|-- Makefile    | Contains recipes for custom mounting and compilation
-|-- README      |
-|-- config.h    | Basic config options.
-|-- default.vil | The same config (older) for VIAL.
-|-- keymap.c    | Keymaps file, contains the three main layers.
-|-- rules.mk    | Basic(er) config options.
-`-- x3hy -> ~/qmk_firmware/keyboards/crkbd/keymaps/x3hy
-            ^ run: $ make keymap
+|-- Makefile        <- read this for more options
+|-- README
+|-- layout
+|   |-- default.vil <- older vial layout (will not be updated)
+|   |-- display.svg <- image of layers!
+|   |-- layout.json
+|   `-- layout.yaml
+`-- x3hy
+    |-- config.h
+    |-- keymap.c
+    `-- rules.mk
+
+3 directories, 9 files
