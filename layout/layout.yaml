@@ -102,13 +102,13 @@ layers:
   - F4
   - F5
   - F6
-  - BSPC
-  - F12
-  - F11
-  - F10
-  - F9
-  - F8
   - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - F12
+  - BSPC
   - LSFT
   - RM HUEU
   - RM SATU
@@ -117,23 +117,23 @@ layers:
   - RM NEXT
   - RM TOGG
   - MFFD
-  - MRWD
+  - ''
+  - ''
+  - ''
   - UP
-  - RGHT
-  - UP
-  - DOWN
-  - LEFT
+  - ''
+  - ''
   - LCTL
   - RM HUED
   - RM SATD
   - RM VALD
   - RM SPDD
   - RM PREV
-  - RGHT
-  - DOWN
+  - ''
+  - ''
   - LEFT
-  - VOLU
-  - VOLD
+  - DOWN
+  - RIGHT
   - {type: held}
   - ''
   - ''

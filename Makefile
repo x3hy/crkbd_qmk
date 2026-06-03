@@ -6,16 +6,15 @@ MOUNT_PATH = /run/media/_3hy/$(DEV_NAME)
 
 all: write compile
 
-write: config.h keymap.c rules.mk
-	qmk create -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true
-	rm ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_FM)
-	cp $(QMK_FM)  ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
+write: $(QMK_KM)/config.h $(QMK_KM)/keymap.c $(QMK_KM)/rules.mk
+	qmk new-keymap -kb $(QMK_KB) -km $(QMK_KM)
+	cp $(QMK_KM)/* ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
 
 compile: write
 	qmk compile -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true
 
-c2json: write keymap.c
-	qmk c2json -kb $(QMK_KB) -km $(QMK_KM) keymap.c > layout.json
+c2json: write $(QMK_KM)/keymap.c
+	qmk c2json -kb $(QMK_KB) -km $(QMK_KM) $(QMK_KM)/keymap.c > layout/layout.json
 
 log_comp:
 	make compile 2>&1 | tee log
@@ -55,7 +54,7 @@ flash: write
 					echo "Found $(DEV_NAME) at $$dev"
 					sudo mount -o uid=$(shell id -u),gid=$(shell id -u),umask=0022 $$dev $(MOUNT_PATH)
 					# Qmk will be able to find the device now
-					qmk flash -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true
+					qmk flash -kb $(QMK_KB) -km $(QMK_KM) -j $(shell nproc)
 					sudo umount $(MOUNT_PATH)
 				;;
 				*) echo -n "$$dev : "
