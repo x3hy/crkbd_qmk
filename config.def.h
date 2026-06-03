@@ -20,6 +20,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#define H_THOUSAND(i) 100000*i
+
+#define RGB_DISABLE_TIMEOUT H_THOUSAND(3)
+#define RGB_MATRIX_TIMEOUT H_THOUSAND(3)
+#undef DISABLE_RGB_MATRIX_TIMEOUT
+
 //#define USE_MATRIX_I2C
 
 //#define QUICK_TAP_TERM 0
@@ -40,4 +46,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_HUE_STEP 10
     #define RGBLIGHT_SAT_STEP 17
     #define RGBLIGHT_VAL_STEP 17
+    #define RGBLIGHT_SLEEP              // Turns off lights when PC sleeps
+    #define RGBLIGHT_SPLIT              // Enables proper sync between halves
+
+    // Add this line to force the master to sync the sleep state to the peripheral half:
+    #define SPLIT_TRANSPORT_MIRROR_TO_HALF
 #endif

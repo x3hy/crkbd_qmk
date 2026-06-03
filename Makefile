@@ -1,29 +1,37 @@
-QMK_KP = "crkbd"
-QMK_KB = "$(QMK_KP)/rev4_1/standard"
-QMK_KM = "x3hy"
-DEV_NAME= RPI-RP2
-MOUNT_PATH = "/run/media/_3hy/$(DEV_NAME)"
+QMK_KP     = crkbd
+QMK_KB     = $(QMK_KP)/rev4_1/standard
+QMK_KM     = x3hy
+DEV_NAME   = RPI-RP2
+MOUNT_PATH = /run/media/_3hy/$(DEV_NAME)
 
 all:compile flash
 
-compile:
-	qmk compile -kb $(QMK_KB) -km $(QMK_KM)
+write: config.h keymap.c
+	cp config.h  ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
+	cp keymap.c  ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
 
-keymap:
+compile: write
+	qmk compile -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true
+
+keymap: remove
 	qmk new-keymap -kb $(QMK_KB) -km $(QMK_KM)
-	-rm $(QMK_KM) config.h keymap.c
 	ln -s ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM) .
-	ln -s $(QMK_KM)/config.h .
-	ln -s $(QMK_KM)/keymap.c .
+	cp $(QMK_KM)/config.h .
+	cp $(QMK_KM)/keymap.c .
 
 remove:
-	-rm -rf ~/qmk_firmware/keyboards/crkbd/keymaps/$(QMK_KM)
-	-rm config.h
-	-rm keymap.c
-	-rm $(QMK_KM)
+	-rm -rf ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM) config.h keymap.c $(QMK_KM)
+
+log_comp:
+	make compile 2>&1 | tee log
+
+format:
+	clang-format -i .clang keymap.c > tmp
+	mv keymap.c /tmp
+	mv tmp keymap.c
 
 .ONESHELL:
-flash:
+flash: write
 	# Surpass udev issues by giving user root perms
 	echo "Allowing access to:"
 	find /dev/hidraw* | while read line; do
@@ -58,7 +66,7 @@ flash:
 					sudo mount -o uid=$(shell id -u),gid=$(shell id -u),umask=0022 $$dev $(MOUNT_PATH)
 					#
 					# Qmk will be able to find the device now
-					qmk flash -kb $(QMK_KB) -km $(QMK_KM)
+					qmk flash -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true
 					sudo umount $(MOUNT_PATH)
 				;;
 				*)
@@ -69,3 +77,5 @@ flash:
 	done
 	echo ""
 	echo "If QMK did not start then the device was not found, ensure it is in bootloader mode."
+
+
