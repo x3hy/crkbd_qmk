@@ -7,11 +7,12 @@ MOUNT_PATH = /run/media/_3hy/$(DEV_NAME)
 all: write compile
 
 write: $(QMK_KM)/config.h $(QMK_KM)/keymap.c $(QMK_KM)/rules.mk
+	-rm ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM) -r
 	qmk new-keymap -kb $(QMK_KB) -km $(QMK_KM)
 	cp $(QMK_KM)/* ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
 
 compile: write
-	qmk compile -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true
+	qmk compile -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true -j $(shell nproc)
 
 c2json: write $(QMK_KM)/keymap.c
 	qmk c2json -kb $(QMK_KB) -km $(QMK_KM) $(QMK_KM)/keymap.c > layout/layout.json

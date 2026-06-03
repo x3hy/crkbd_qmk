@@ -25,6 +25,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define QUICK_TAP_TERM 0
 //#define TAPPING_TERM 100
 
+#define RGB_MATRIX_SLEEP
+#define RGB_DISABLE_TIMEOUT 300000
+#define RGB_MATRIX_TIMEOUT 300000
+#undef DISABLE_RGB_MATRIX_TIMEOUT
+
+
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_EFFECT_BREATHING
     #define RGBLIGHT_EFFECT_RAINBOW_MOOD
