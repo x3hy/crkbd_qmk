@@ -4,7 +4,7 @@ QMK_KM     = x3hy
 DEV_NAME   = RPI-RP2
 MOUNT_PATH = /run/media/_3hy/$(DEV_NAME)
 
-all:compile flash
+all: write compile
 
 write: config.h keymap.c rules.mk
 	cp config.h  ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
@@ -13,16 +13,6 @@ write: config.h keymap.c rules.mk
 
 compile: write
 	qmk compile -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true
-
-keymap: remove
-	qmk new-keymap -kb $(QMK_KB) -km $(QMK_KM)
-	ln -s ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM) .
-	cp $(QMK_KM)/config.h .
-	cp $(QMK_KM)/keymap.c .
-	cp $(QMK_KM)/rules.mk .
-
-remove:
-	-rm -rf ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM) config.h keymap.c $(QMK_KM) rules.mk
 
 log_comp:
 	make compile 2>&1 | tee log
