@@ -1,6 +1,9 @@
 QMK_KP     = crkbd
-QMK_KB     = $(QMK_KP)/rev4_1/standard
+QMK_VR     = rev4_1
+QMK_VA     = standard
+QMK_KB     = $(QMK_KP)/$(QMK_VR)/$(QMK_VA)
 QMK_KM     = x3hy
+QMK_N      = $(QMK_KP)_$(QMK_VR)_$(QMK_VA)_$(QMK_KM).uf2
 DEV_NAME   = RPI-RP2
 MOUNT_PATH = /run/media/_3hy/$(DEV_NAME)
 
@@ -13,6 +16,8 @@ write: $(QMK_KM)/config.h $(QMK_KM)/keymap.c $(QMK_KM)/rules.mk
 
 compile: write
 	qmk compile -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true -j $(shell nproc)
+	@echo "Moving uf2 file to current dir"
+	cp ~/qmk_firmware/$(QMK_N) .
 
 c2json: write $(QMK_KM)/keymap.c
 	qmk c2json -kb $(QMK_KB) -km $(QMK_KM) $(QMK_KM)/keymap.c > layout/layout.json
