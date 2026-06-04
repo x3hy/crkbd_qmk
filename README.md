@@ -4,7 +4,9 @@ Because of the Redhat cuck-ware known as `udevd`, QMK does not work correctly wi
 <br><br>
 Layout:
 ![layout image](layout/layout.png)
+
 <br>
+
 ```
 |-- Makefile        <- read this for more options
 |-- README
