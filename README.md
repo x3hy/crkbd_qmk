@@ -26,6 +26,8 @@ make compile
 
 This will also move the compiled uf2 file to the current directory.
 
+---
+
 ```
 |-- Makefile        <- read this for more options
 |-- README
