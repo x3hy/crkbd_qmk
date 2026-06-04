@@ -57,16 +57,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	return true;
 }
 
+enum combos {
+	left_bracket_combo,
+	right_bracket_combo,
+	
+	left_curly_combo,
+	right_curly_combo,
+
+	left_slash_combo,
+	left_pipe_combo,
+
+	left_paren_combo,
+	right_paren_combo
+}
+
 const uint16_t PROGMEM left_bracket[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM right_bracket[] = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM shift_left_bracket[] = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM shift_right_bracket[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM left_curly[] = {KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM right_curly[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM left_slash[] = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM left_pipe[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM left_paren[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM right_paren[] = {KC_C, KC_V, COMBO_END};
 
 combo_t key_combos[] = {
-	COMBO(left_bracket, KC_LBRC),
-	COMBO(right_bracket, KC_RBRC),
-	COMBO(shift_right_bracket, S(KC_RBRC)),
-	COMBO(shift_left_bracket, S(KC_RBRC)),
+	[left_bracket_combo]  = COMBO(left_bracket, KC_LBRC),
+	[right_bracket_combo] = COMBO(right_bracket, KC_RBRC),
+	[left_curly_combo]    = COMBO(left_curly, S(KC_LBRC)),
+	[right_curly_combo]   = COMBO(right_curly, S(KC_RBRC)),
+	[left_slash_combo]    = COMBO(left_slash, KC_BSLS),
+	[left_pipe_combo]     = COMBO(left_pipe, S(KC_BSLS)),
+	[left_paren_combo]    = COMBO(left_paren, S(KC_9)),
+	[right_paren_combo]   = COMBO(right_paren, S(KC_0)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
