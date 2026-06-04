@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define COMBO_TERM 150 // ms
 #define COMBO_VARIABLE_LEN
-#define COMBO_COUNT 8
+#define COMBO_COUNT 9
 
 
 #define RGB_MATRIX_SLEEP

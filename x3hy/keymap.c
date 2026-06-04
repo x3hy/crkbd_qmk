@@ -64,11 +64,12 @@ enum combos {
 	left_curly_combo,
 	right_curly_combo,
 
-	left_slash_combo,
-	left_pipe_combo,
-
 	left_paren_combo,
-	right_paren_combo
+	right_paren_combo,
+
+	caps_lock_combo,
+	tilda_tick_combo,
+	backslash_combo
 };
 
 const uint16_t PROGMEM left_bracket[] =  {KC_W, KC_E, COMBO_END};
@@ -79,6 +80,10 @@ const uint16_t PROGMEM right_paren[] =   {KC_Y, KC_U, COMBO_END};
 const uint16_t PROGMEM right_curly[] =   {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM right_bracket[] = {KC_I, KC_O, COMBO_END};
 
+const uint16_t PROGMEM caps_lock[] = {KC_SPC, KC_ENT, COMBO_END};
+const uint16_t PROGMEM tilda_tick[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM backslash[] = {KC_O, KC_P, COMBO_END};
+
 combo_t key_combos[] = {
 	[left_bracket_combo]  = COMBO(left_bracket, KC_LBRC),
 	[left_curly_combo]    = COMBO(left_curly, S(KC_LBRC)),
@@ -87,6 +92,10 @@ combo_t key_combos[] = {
 	[right_bracket_combo] = COMBO(right_bracket, KC_RBRC),
 	[right_curly_combo]   = COMBO(right_curly, S(KC_RBRC)),
 	[right_paren_combo]   = COMBO(right_paren, S(KC_0)),
+
+	[caps_lock_combo]     = COMBO(caps_lock, KC_CAPS),
+	[tilda_tick_combo]    = COMBO(tilda_tick, KC_GRV),
+	[backslash_combo]     = COMBO(blackslash, KC_BSLS)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
