@@ -5,10 +5,26 @@ Because of the Redhat cuck-ware known as `udevd`, QMK does not work correctly wi
 
 ---
 
+
 Layout:
 ![layout image](layout/layout.png)
 
 <br>
+
+# Installing
+To flash the firmware just run the following:
+```
+make flash
+```
+You will be prompted for sudo at one point, please ensure you have read the `Makefile`.
+<br><br>
+
+To simply compile, you can run the following:
+```
+make compile
+```
+
+This will also move the compiled uf2 file to the current directory.
 
 ```
 |-- Makefile        <- read this for more options
