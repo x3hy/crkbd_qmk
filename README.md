@@ -1,4 +1,4 @@
-![layout image](layout/layout.svg)
+![layout image](layout/layout.png)
 Hello! This is my custom configuration of my Corne V4.1 (46 keys) for QMK. Because of my specific Linux distro, I needed to write a custom loader for the keyboard device. Mostly because the Redhat cuck-ware; udev, does not work.
 <br><br>
 I've set this up for portability. Please read the Makefile for more
