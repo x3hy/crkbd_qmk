@@ -95,7 +95,7 @@ combo_t key_combos[] = {
 
 	[caps_lock_combo]     = COMBO(caps_lock, KC_CAPS),
 	[tilda_tick_combo]    = COMBO(tilda_tick, KC_GRV),
-	[backslash_combo]     = COMBO(blackslash, KC_BSLS)
+	[backslash_combo]     = COMBO(backslash, KC_BSLS)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
