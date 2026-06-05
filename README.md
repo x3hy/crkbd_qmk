@@ -2,7 +2,7 @@
 > My custom keymap for QMK-enabled foostan Corne V4.1's.
 
 ![photo of keyboard](alt/image1.jpg)
-> More images in the `alt/` folder.
+More images in the `alt/` folder.
 
 ## Layout:
 ![layout image](alt/layout.png)
