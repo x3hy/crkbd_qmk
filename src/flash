@@ -1,0 +1,70 @@
+#!/bin/sh
+
+# Must be run with uf2 file
+if [ ! -n "$1" ]; then
+	echo "$0 <uf2>"
+	exit 1;
+fi
+
+# Verify UF2 existance
+UF2_PATH="$1"
+if [ ! -e "$UF2_PATH" ]; then
+	echo "$UF2_PATH does not exist."
+	exit 1;
+fi
+
+# Ensure user is root
+if [ ! "$USER" = "root" ];then
+	echo "Run with sudo.."
+	exit 1;
+fi
+
+# Generate a temp dir name
+gen_build(){
+	tmp="$(mktemp)"
+	rm "$tmp"
+	echo -n "/"
+	echo "$tmp" | tr '.' '\n' | tail -n 1
+}
+
+# Ensure the mount path does not exist
+MOUNT_PATH="$(gen_build)"
+if [ -e "$MOUNT_PATH" ];then
+	echo "$MOUNT_PATH already exists."
+	exit 1;
+fi
+
+# Loop through each drive partition
+DEV_NAME="RPI_RP2"
+USERID="$(id -u)"
+
+# Locate the device's path by name
+lsblk -lno NAME,TYPE | awk '$2=="part" {print "/dev/"$1}' |\
+while read DEV_PATH; do
+	DEV_INFO=$(udevadm info --query=property --name=$DEV_PATH | grep "ID_SERIAL=")
+	case "$DEV_INFO" in
+		*$DEV_NAME*)
+			set -x
+			echo "Mount the board"
+
+			mkdir -p "$MOUNT_PATH"
+			mount -o uid=$USERID,gid=$USERID,umask=0022 "$DEV_PATH" "$MOUNT_PATH"
+
+			echo "Copy firmware over"
+			cp -r "$UF2_PATH" "$MOUNT_PATH"
+
+			echo "Remove mount point"
+			umount "$MOUNT_PATH"
+			rm -r "$MOUNT_PATH"
+
+			echo "Flashed $DEV_NAME on $DEV_PATH"
+			set +x
+
+			echo "Killing self.."
+			kill $$
+		;;
+	esac
+done
+
+echo "Unable to locate $DEV_NAME"
+exit 1;

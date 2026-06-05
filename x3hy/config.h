@@ -29,6 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_VARIABLE_LEN
 #define COMBO_COUNT 9
 
+#define SPLIT_USB_DETECT
 
 #define RGB_MATRIX_SLEEP
 #define RGB_DISABLE_TIMEOUT 300000 // ms
