@@ -28,11 +28,6 @@ combo: combo.sh
 log_comp:
 	make compile 2>&1 | tee log
 
-format:
-	clang-format keymap.c > tmp
-	mv keymap.c /tmp
-	mv tmp keymap.c
-
 .ONESHELL:
 flash: write
 	# Surpass udev issues by giving user root perms
