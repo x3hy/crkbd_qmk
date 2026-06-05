@@ -1,0 +1,13 @@
+#!/bin/sh
+# Grants access to hidraw devices, this is required for VIAL firmware to work.
+#
+
+set -x
+find /dev/hidraw* | while read DEV; do
+	chown $USER "$DEV"
+	if [ $? -ne 0 ]; then
+		exit 1;
+	fi
+done
+
+exit 0;

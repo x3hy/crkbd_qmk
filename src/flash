@@ -50,8 +50,7 @@ while read DEV_PATH; do
 			mkdir -p "$MOUNT_PATH"
 			mount -o uid=$USERID,gid=$USERID,umask=0022 "$DEV_PATH" "$MOUNT_PATH"
 
-			echo "Copy firmware over"
-			cp -r "$UF2_PATH" "$MOUNT_PATH"
+			cp -r "$UF2_PATH" "$MOUNT_PATH/NEW.UF2"
 
 			echo "Remove mount point"
 			umount "$MOUNT_PATH"

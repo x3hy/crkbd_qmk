@@ -29,7 +29,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_VARIABLE_LEN
 #define COMBO_COUNT 9
 
+// split fixes
 #define SPLIT_USB_DETECT
+#define SPLIT_USB_TIMEOUT 2000
+#define SPLIT_USB_TIMEOUT_POLL 10
+#define SPLIT_WATCHDOG_ENABLE
+#define SPLIT_WATCHDOG_TIMEOUT 3000
+#define MASTER_LEFT     // or #define MASTER_RIGHT if you always plug USB into the right half
+#define SPLIT_MAX_CONNECTION_ERRORS 10    // Default, increase if slave drops often
+#define SPLIT_CONNECTION_CHECK_TIMEOUT 500
+#define FORCED_SYNC_THROTTLE_MS 100
+#define SPLIT_TRANSPORT_MIRROR          // Mirror matrix to slave (good for RGB/layer reactions)
+#define SPLIT_LAYER_STATE_ENABLE        // Sync layers between halves
+#define SPLIT_LED_STATE_ENABLE          // Sync Caps/Num/Scroll lock LEDs
+#define SPLIT_MODS_ENABLE               // Sync modifier state
+#define EE_HANDS          // This stores handedness in EEPROM — very reliable for Corne
+#define MASTER_LEFT       // Change to MASTER_RIGHT if you plug USB into the right half
+#define SPLIT_USB_DETECT
+// end split fixes
 
 #define RGB_MATRIX_SLEEP
 #define RGB_DISABLE_TIMEOUT 300000 // ms
