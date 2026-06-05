@@ -22,6 +22,9 @@ compile: write
 c2json: write $(QMK_KM)/keymap.c
 	qmk c2json -kb $(QMK_KB) -km $(QMK_KM) $(QMK_KM)/keymap.c > layout/layout.json
 
+combo: combo.sh
+	./$^ $(QMK_KM)/keymap.c
+
 log_comp:
 	make compile 2>&1 | tee log
 

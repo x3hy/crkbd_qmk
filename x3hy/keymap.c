@@ -72,17 +72,17 @@ enum combos {
 	backslash_combo
 };
 
-const uint16_t PROGMEM left_bracket[] =  {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM left_curly[] =    {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM left_paren[] =    {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM tilda_tick[] =    {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM left_paren[] =    {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM left_curly[] =    {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM left_bracket[] =  {KC_C, KC_V, COMBO_END};
 
-const uint16_t PROGMEM right_paren[] =   {KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM right_curly[] =   {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM right_bracket[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM backslash[] =     {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM right_paren[] =   {KC_DOT, KC_SLSH, COMBO_END};
+const uint16_t PROGMEM right_bracket[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM right_curly[] =   {KC_M, KC_COMM, COMBO_END};
 
 const uint16_t PROGMEM caps_lock[] = {KC_SPC, KC_ENT, COMBO_END};
-const uint16_t PROGMEM tilda_tick[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM backslash[] = {KC_O, KC_P, COMBO_END};
 
 combo_t key_combos[] = {
 	[left_bracket_combo]  = COMBO(left_bracket, KC_LBRC),
