@@ -1,6 +1,5 @@
 # `crkbd_qmk`
 > My custom keymap for QMK-enabled foostan Corne V4.1's.
-![photo of keyboard](alt/image2.jpg)
 ![photo of keyboard](alt/image1.jpg)
 
 ## Layout:
