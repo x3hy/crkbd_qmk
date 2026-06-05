@@ -1,5 +1,6 @@
 # `crkbd_qmk`
 > My custom keymap for QMK-enabled foostan Corne V4.1's.
+
 ![photo of keyboard](alt/image1.jpg)
 
 ## Layout:
@@ -18,8 +19,8 @@ KC_M, KC_COMM, = S(KC_RBRC)
 KC_SPC, KC_ENT, = KC_CAPS
 ```
 
-## Installing
-Because of the Redhat cuck-ware known as `udevd`, QMK does not work correctly with my system, specifically QMK flashing. To remedy this I've written a custom script (`src/flash`) that correctly flashes the new firmware to the board."
+## flashing
+QMK does not work correctly with my system, specifically QMK flashing. To remedy this I've written a custom script (`src/flash`) that correctly flashes the new firmware to the board."
 <br></br>
 To flash the firmware just run the following:
 ```
