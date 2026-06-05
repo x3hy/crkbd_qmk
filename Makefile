@@ -11,7 +11,7 @@ FSH_UF2    = src/firmware.uf2
 $(FSH_UF2): $(QMK_KM)/config.h $(QMK_KM)/keymap.c $(QMK_KM)/rules.mk
 	-rm ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM) -r
 	qmk new-keymap -kb $(QMK_KB) -km $(QMK_KM)
-	#cp $(QMK_KM)/* ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
+	cp $(QMK_KM)/* ~/qmk_firmware/keyboards/$(QMK_KP)/keymaps/$(QMK_KM)
 	#
 	qmk compile -kb $(QMK_KB) -km $(QMK_KM) -e VERBOSE=true -j $(shell nproc)
 	cp ~/qmk_firmware/$(QMK_UF2) $(FSH_UF2)
