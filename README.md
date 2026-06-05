@@ -10,9 +10,22 @@ Because of the Redhat cuck-ware known as `udevd`, QMK does not work correctly wi
 ## Layout:
 ![layout image](layout/layout.png)
 
+
 ### Combos:
 > Combos are annoying on the keymap drawer so here is a list of QMK combos, generated using `make combos`
 
+```bash
+./combo.sh x3hy/keymap.c
+KC_D, KC_F, = KC_GRV
+KC_Z, KC_X, = S(KC_9)
+KC_X, KC_C, = S(KC_LBRC)
+KC_C, KC_V, = KC_LBRC
+KC_J, KC_K, = KC_BSL
+KC_DOT, KC_SLSH, = S(KC_0)
+KC_COMM, KC_DOT, = KC_RBRC
+KC_M, KC_COMM, = S(KC_RBRC)
+KC_SPC, KC_ENT, = KC_CAPS
+```
 
 ## Installing
 To flash the firmware just run the following:
